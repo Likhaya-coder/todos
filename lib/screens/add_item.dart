@@ -34,7 +34,7 @@ class _AddItemState extends State<AddItem> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, '/', arguments: {
-            //'title': title,
+            'title': title,
             'description': desc,
             'color': severity,
           });
@@ -62,7 +62,7 @@ class _AddItemState extends State<AddItem> {
             TextField(
               onChanged: (value) {
                 setState(() {
-                  print(desc = value);
+                  print(title = value);
                 });
               },
               style: const TextStyle(
@@ -93,7 +93,7 @@ class _AddItemState extends State<AddItem> {
             TextField(
               onChanged: (value) {
                 setState(() {
-                  print(title = value);
+                  print(desc = value);
                 });
               },
               style: const TextStyle(
