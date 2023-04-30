@@ -4,8 +4,9 @@ import 'package:to_do_app/classes/todos_data.dart';
 class TodoItem extends StatelessWidget {
   final Todos todo;
   final Function checkIsItDone;
+  final Color tileColor;
 
-  TodoItem({Key? key, required this.todo, required this.checkIsItDone})
+  TodoItem({Key? key, required this.todo, required this.checkIsItDone, required this.tileColor})
       : super(key: key);
 
   final dismissibleKey = Todos.todoList();
@@ -26,7 +27,7 @@ class TodoItem extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              tileColor: Colors.black38,
+              tileColor: tileColor,
               title: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -42,7 +43,7 @@ class TodoItem extends StatelessWidget {
                     Text(
                       todo.desc,
                       style: TextStyle(
-                        color: Colors.grey,
+                        color: Colors.black,
                         decoration: todo.isDone == true ? TextDecoration.lineThrough : null,
                       ),
                     ),
@@ -55,7 +56,8 @@ class TodoItem extends StatelessWidget {
                 },
                 icon: Icon(
                   todo.isDone == true ? Icons.check_box : Icons.check_box_outline_blank,
-                  color: Colors.green,
+                  color: Colors.green.shade900,
+                  size: 30.0,
                 ),
               ),
             ),

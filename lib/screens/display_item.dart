@@ -62,6 +62,7 @@ class _DisplayItemState extends State<DisplayItem> {
                 TodoItem(
                   todo: todos,
                   checkIsItDone: _checkIfDone,
+                  tileColor: _checkPriority(todos),
                 ),
             ],
           ),
@@ -90,5 +91,18 @@ class _DisplayItemState extends State<DisplayItem> {
           desc: data['description']),
     );
   });
+  }
+
+  late Color colour;
+
+  Color _checkPriority(Todos todos) {
+    if (todos.color == "red") {
+      colour = Colors.red;
+    } else if (todos.color == 'orange') {
+      colour = Colors.orange;
+    } else {
+      colour = Colors.blue;
+    }
+    return colour;
   }
 }
