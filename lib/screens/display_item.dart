@@ -65,7 +65,6 @@ class _DisplayItemState extends State<DisplayItem> {
               builder: (context) => const AddItem(),
             ),
           );
-          //print(results);
           setState(() {
             data = {
               'title': results['title'],
@@ -79,28 +78,31 @@ class _DisplayItemState extends State<DisplayItem> {
         child: const Icon(Icons.add),
       ),
       body: SafeArea(
-        child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 5.0),
-          child: Column(
-            children: [
-              const Text(
-                'To Do List',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontFamily: 'PlayfairDisplay',
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(height: 20.0),
-              for (Todos todos in todoList)
-                Expanded(
-                  child: TodoItem(
-                    todo: todos,
-                    checkIsItDone: _checkIfDone,
-                    tileColor: _checkPriority(todos),
+        child: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 5.0),
+            child: Column(
+              children: [
+                const Text(
+                  'To Do List',
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontFamily: 'PlayfairDisplay',
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-            ],
+                const SizedBox(height: 20.0),
+                for (Todos todos in todoList)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10.0),
+                      child: TodoItem(
+                        todo: todos,
+                        checkIsItDone: _checkIfDone,
+                        tileColor: _checkPriority(todos),
+                  ),
+                    ),
+              ],
+            ),
           ),
         ),
       ),

@@ -10,14 +10,7 @@ class Todos{
   static List<Todos> todoList() {
     return [
       Todos(title: 'Wash a car', desc: 'Wash a car tomorrow with hot water', isDone: true, color: 'red', id: '1'),
-      Todos(title: 'Wash a car', desc: 'Wash a car tomorrow with hot water', isDone: true, color: 'blue', id: '2'),
-      Todos(title: 'Wash a car', desc: 'Wash a car tomorrow with hot water', id: '3', color: 'orange'),
-      Todos(title: 'Wash a car', desc: 'Wash a car tomorrow with hot water', id: '4'),
-      // Todos(title: 'Wash a car', desc: 'Wash a car tomorrow with hot water', id: '5', color: 'orange'),
-      // Todos(title: 'Wash a car', desc: 'Wash a car tomorrow with hot water', id: '6', color: 'red'),
-      // Todos(title: 'Wash a car', desc: 'Wash a car tomorrow with hot water', id: '7', color: 'orange'),
-      // Todos(title: 'Wash a car', desc: 'Wash a car tomorrow with hot water', id: '8'),
-      // Todos(title: 'Solivan car wash', desc: 'Wash a car tomorrow with hot water', id: '9', color: 'red'),
+      Todos(title: 'Todo list project', desc: 'Finish up my Todo list project by tomorrow', isDone: true, color: 'blue', id: '2'),
     ];
   }
 }

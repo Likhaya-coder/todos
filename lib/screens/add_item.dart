@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/classes/todos_data.dart';
-import 'package:to_do_app/screens/display_item.dart';
-
 import '../constants.dart';
 
 class AddItem extends StatefulWidget {
@@ -58,7 +56,7 @@ class _AddItemState extends State<AddItem> {
               ),
             ),
             const SizedBox(height: 10.0),
-            //const CustomTextField(hintText: 'Enter title here'),
+
             TextField(
               onChanged: (value) {
                 setState(() {
@@ -68,20 +66,10 @@ class _AddItemState extends State<AddItem> {
               style: const TextStyle(
                 color: Colors.black54,
               ),
-              decoration: InputDecoration(
-                hintText: 'Enter title here',
-                hintStyle: const TextStyle(
-                  color: Colors.blueGrey,
-                ),
-                filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(5.0),
-                ),
-              ),
+              decoration: kTitleInputDecoration,
             ),
             const SizedBox(height: 25.0),
+
             const Text(
               'Description:',
               style: TextStyle(
@@ -89,7 +77,7 @@ class _AddItemState extends State<AddItem> {
               ),
             ),
             const SizedBox(height: 10.0),
-            //const CustomTextField(hintText: 'Describe what you like to do'),
+
             TextField(
               onChanged: (value) {
                 setState(() {
@@ -99,20 +87,10 @@ class _AddItemState extends State<AddItem> {
               style: const TextStyle(
                 color: Colors.black54,
               ),
-              decoration: InputDecoration(
-                hintText: 'Describe what you like to do',
-                hintStyle: const TextStyle(
-                  color: Colors.blueGrey,
-                ),
-                filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(5.0),
-                ),
-              ),
+              decoration: kDescriptionInputDecoration,
             ),
             const SizedBox(height: 25.0),
+
             const Text(
               'Priority:',
               style: TextStyle(
@@ -120,6 +98,7 @@ class _AddItemState extends State<AddItem> {
               ),
             ),
             const SizedBox(height: 10.0),
+
             Container(
               width: 600.0,
               height: 58.0,

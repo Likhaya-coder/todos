@@ -9,16 +9,27 @@ class TodoItem extends StatelessWidget {
   TodoItem({Key? key, required this.todo, required this.checkIsItDone, required this.tileColor})
       : super(key: key);
 
+  //Getting all the list item
   final dismissibleKey = Todos.todoList();
 
   @override
   Widget build(BuildContext context) {
+    //Taking the list items and assign them on item variable as a string
     String item = dismissibleKey.toString();
+
+    //Getting the length of the item list
+    int index = dismissibleKey.length;
     return ListView(
+      shrinkWrap: true,
       children: [
         Dismissible(
           background: Container(color: Colors.indigo),
           key: Key(item),
+          // Provide a function that tells the app
+          // what to do after an item has been swiped away.
+          onDismissed: (direction) {
+            dismissibleKey.removeAt(index);
+          },
           child: ListTile(
             onTap: () {},
             shape: RoundedRectangleBorder(
