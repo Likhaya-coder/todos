@@ -33,7 +33,7 @@ class _AddItemState extends State<AddItem> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/', arguments: {
+          Navigator.pop(context, {
             'title': title,
             'description': desc,
             'color': severity,

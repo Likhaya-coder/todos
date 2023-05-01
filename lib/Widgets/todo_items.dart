@@ -14,56 +14,52 @@ class TodoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String item = dismissibleKey.toString();
-    return Expanded(
-      child: ListView(
-        scrollDirection: Axis.vertical,
-        addAutomaticKeepAlives: false,
-        children: [
-          Dismissible(
-            background: Container(color: Colors.indigo),
-            key: Key(item.toString()),
-            child: ListTile(
-              onTap: () {},
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              tileColor: tileColor,
-              title: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      todo.title,
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        decoration: todo.isDone == true ? TextDecoration.lineThrough : null,
-                      ),
+    return ListView(
+      children: [
+        Dismissible(
+          background: Container(color: Colors.indigo),
+          key: Key(item),
+          child: ListTile(
+            onTap: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            tileColor: tileColor,
+            title: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    todo.title,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      decoration: todo.isDone == true ? TextDecoration.lineThrough : null,
                     ),
-                    Text(
-                      todo.desc,
-                      style: TextStyle(
-                        color: Colors.black,
-                        decoration: todo.isDone == true ? TextDecoration.lineThrough : null,
-                      ),
+                  ),
+                  Text(
+                    todo.desc,
+                    style: TextStyle(
+                      color: Colors.black,
+                      decoration: todo.isDone == true ? TextDecoration.lineThrough : null,
                     ),
-                  ],
-                ),
-              ),
-              trailing: IconButton(
-                onPressed: () {
-                  checkIsItDone(todo);
-                },
-                icon: Icon(
-                  todo.isDone == true ? Icons.check_box : Icons.check_box_outline_blank,
-                  color: Colors.green.shade900,
-                  size: 30.0,
-                ),
+                  ),
+                ],
               ),
             ),
-          )
-        ],
-      ),
+            trailing: IconButton(
+              onPressed: () {
+                checkIsItDone(todo);
+              },
+              icon: Icon(
+                todo.isDone == true ? Icons.check_box : Icons.check_box_outline_blank,
+                color: Colors.green.shade900,
+                size: 30.0,
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
