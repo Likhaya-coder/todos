@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/classes/todos_data.dart';
+import '../Widgets/dropdown.dart';
 import '../constants.dart';
 
 class AddItem extends StatefulWidget {
@@ -99,32 +100,9 @@ class _AddItemState extends State<AddItem> {
             ),
             const SizedBox(height: 10.0),
 
-            Container(
-              width: 600.0,
-              height: 58.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5.0),
-                color: kFloatingButtonColor,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: DropdownButton<String>(
-                  isExpanded: true,
-                  style: kDropdownTextStyle,
-                  dropdownColor: kDropdownBackgroundColor,
-                  iconEnabledColor: kDropdownBackgroundColor,
-                  iconSize: 40.0,
-                  value: severity,
-                  items: getDropDownItems(),
-                  onChanged: (value) {
-                    setState(
-                      () {
-                        print(severity = value.toString());
-                      },
-                    );
-                  },
-                ),
-              ),
+            Dropdown(
+              severity: severity,
+              getDropDownItems: getDropDownItems(),
             ),
           ],
         ),

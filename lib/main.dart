@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/constants.dart';
 import 'package:to_do_app/screens/display_item.dart';
 import 'package:to_do_app/screens/add_item.dart';
-import 'package:to_do_app/constants.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -11,8 +10,9 @@ void main() {
         backgroundColor: kFloatingButtonColor,
       ),
       scaffoldBackgroundColor: kScaffoldNavy,
-      appBarTheme: const AppBarTheme(color: kAppBarNavy),
+      appBarTheme: const AppBarTheme(color: kAppBarNavy)
     ),
+    debugShowCheckedModeBanner: false,
     initialRoute: '/',
     routes: {
       '/': (context) => const DisplayItem(),

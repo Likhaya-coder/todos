@@ -6,10 +6,11 @@ class TodoItem extends StatelessWidget {
   final Function checkIsItDone;
   final Color tileColor;
 
+  //passing all the data from display item page through the constructor
   TodoItem({Key? key, required this.todo, required this.checkIsItDone, required this.tileColor})
       : super(key: key);
 
-  //Getting all the list item
+  //Getting all the list item form the class
   final dismissibleKey = Todos.todoList();
 
   @override
@@ -35,6 +36,7 @@ class TodoItem extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
+            //Background color of the tile, will match whatever the color that the user selected
             tileColor: tileColor,
             title: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -45,6 +47,7 @@ class TodoItem extends StatelessWidget {
                     todo.title,
                     style: TextStyle(
                       fontSize: 18.0,
+                      //if the task is done we want the line to be stretched else leave it blank
                       decoration: todo.isDone == true ? TextDecoration.lineThrough : null,
                     ),
                   ),
@@ -52,6 +55,7 @@ class TodoItem extends StatelessWidget {
                     todo.desc,
                     style: TextStyle(
                       color: Colors.black,
+                      //if the task is done we want the line to be stretched else leave it blank
                       decoration: todo.isDone == true ? TextDecoration.lineThrough : null,
                     ),
                   ),
@@ -63,6 +67,7 @@ class TodoItem extends StatelessWidget {
                 checkIsItDone(todo);
               },
               icon: Icon(
+                //using ternary operator to check if is done is true or false and return a right icon
                 todo.isDone == true ? Icons.check_box : Icons.check_box_outline_blank,
                 color: Colors.green.shade900,
                 size: 30.0,
